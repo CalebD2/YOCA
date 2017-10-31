@@ -1,0 +1,72 @@
+Class Hierarchy Example
+
+1. YOCA.java (initializes GUI)
+	A. GUI.java (initializes classHandler data handler, one per semester)
+		I. classHandler.java (initializes multiple gradeHanders, one for each of the user's classes)
+			a. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+
+			b. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iV. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+
+			c. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+
+			d. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iv. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				v. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+		
+		II. classHandler.java (initializes multiple gradeHanders, one for each of the user's classes)
+			a. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+
+			b. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iV. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+
+			c. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+
+			d. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iv. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				v. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+		
+		III. classHandler.java (initializes multiple gradeHanders, one for each of the user's classes)
+			a. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+
+			b. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iV. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+
+			c. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+
+			d. gradeHandler.java (Initializes multiple singleGrades for storage)
+				i. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				ii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iii. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				iv. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
+				v. singleGrade.java (storage of individual grades w/ names, grade, and grade weight)
