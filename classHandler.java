@@ -24,6 +24,7 @@ public class classHandler {
     }
     
     public void addClass(String name){
+        ArrayList<String> test;
         classes.add(new gradeHandler(name));
     }
     
@@ -39,7 +40,16 @@ public class classHandler {
         return semester;
     }
     
+    public String getClassName (int index) {
+        return classes.get(index).getName();
+    }
+    
+    public Integer getClassNumber(){
+        return classes.size();
+    }
+    
     public double getClassGrade(int index){
         return classes.get(index).calcGrade();
     }
+    
 }

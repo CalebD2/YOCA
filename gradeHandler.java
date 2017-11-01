@@ -18,7 +18,7 @@ public class gradeHandler {
     String name;
     ArrayList<singleGrade> grades;
     
-    public gradeHandler(String name){
+    public gradeHandler(String name){        
         this.name = name;
     }
     
@@ -41,5 +41,13 @@ public class gradeHandler {
         }
         
         return estGrade;
+    }
+    
+    public Integer getGradeNumber(){
+        return grades.size();
+    }
+    
+    public String getName(){
+        return name;
     }
 }

@@ -20,6 +20,18 @@ public class singleGrade {
         this.weight = weight;
     }
     
+    public String getGradeName(){
+        return gradeName;
+    }
+    
+    public double getGrade(){
+        return grade;
+    }
+    
+    public double getWeight(){
+        return weight;
+    }
+    
     public double getActualGrade(){
         return grade * weight / 100;
     }
