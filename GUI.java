@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package yoca;
+package Alpha;
 
 //Imports are listed in full to show what's being used
 //could just import javax.swing.* and java.awt.* etc..
@@ -16,8 +16,11 @@ import javax.swing.JList;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class GUI {
+	ArrayList<String> semesters;
+	
 
     //Note: Typically the main method will be in a
     //separate class. As this is a simple one class
@@ -29,8 +32,8 @@ public class GUI {
 
        //make sure the program exits when the frame closes
        guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       guiFrame.setTitle("Example GUI");
-       guiFrame.setSize(300,250);
+       guiFrame.setTitle("Your Own Class Manager");
+       guiFrame.setSize(600,600);
 
        //This will center the JFrame in the middle of the screen
        guiFrame.setLocationRelativeTo(null);
