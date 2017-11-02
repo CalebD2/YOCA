@@ -14,22 +14,21 @@ import java.util.ArrayList;
 
 /// Stores an array of classes, called gradeHandlers, which store the class's name and array of individual grades
 public class classHandler { 
-    String userName;
-    String semester;
-    ArrayList<gradeHandler> classes;
+	private String userName;
+	private String semester;
+	private ArrayList<course> classes;
     
     public classHandler(String user, String semester){
         this.userName = user;
         this.semester = semester;
     }
     
-    public void addClass(String name){
-        ArrayList<String> test;
-        classes.add(new gradeHandler(name));
+    public void addClass(String name, int id, String code){
+        this.classes.add(new course(name, id, code));
     }
     
     public void removeClass(int index){
-        classes.remove(index);
+        this.classes.remove(index);
     }
     
     public String getName(){

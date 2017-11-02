@@ -10,13 +10,15 @@ package Alpha;
  * @author Cale
  */
 public class singleGrade {
-    String gradeName;
-    double grade;
-    double weight;
+	private String gradeName;
+    private double availablePoints;
+    private double earnedPoints;
+	private double weight;
     
-    public singleGrade(String name, double grade, double weight){
+    public singleGrade(String name, double total, double grade, double weight){
         this.gradeName = name;
-        this.grade = grade;
+        this.earnedPoints = grade;
+        this.availablePoints = total;
         this.weight = weight;
     }
     
@@ -24,8 +26,12 @@ public class singleGrade {
         return gradeName;
     }
     
+    public double getTotal() {
+    	return availablePoints;
+    }
+    
     public double getGrade(){
-        return grade;
+        return earnedPoints;
     }
     
     public double getWeight(){
@@ -33,6 +39,23 @@ public class singleGrade {
     }
     
     public double getActualGrade(){
-        return grade * weight / 100;
+        return earnedPoints * weight / 100;
     }
+    
+	public void changeGrade(double grade) {
+    	this.earnedPoints = grade;
+    }
+    
+	public void changePoints(double points) {
+    	this.availablePoints = points;
+    }
+    
+	public void changeName(String name) {
+    	this.gradeName = name;
+    }
+    
+	public void changeWeight(double weight) {
+    	this.weight = weight;
+    }
+    
 }
