@@ -3,20 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package yoca;
+package Alpha;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author Caleb
  */
 public class GUI extends javax.swing.JFrame {
-
+    private ArrayList<classHandler> semesters;
+    
     /**
      * Creates new form GUI
      */
     public GUI() {
+        this.semesters = new ArrayList<classHandler>();
         initComponents();
     }
+    
+    public void addSemester(classHandler semester){
+        semesters.add(semester);
+    }
+    
+    public void removeSemester(int index){
+        semesters.remove(index);
+    }
+    
+    public void editSemester(int index, classHandler semester){
+        semesters.set(index, semester);
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
