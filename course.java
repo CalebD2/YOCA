@@ -10,6 +10,7 @@ public class course {
 	private ArrayList<distribution> distributions;
 	
 	public course(String name, int id, String code) {
+		this.distributions = (new ArrayList<distribution>());
 		this.name = name;
 		this.id = id;
 		this.code = code;

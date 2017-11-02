@@ -19,6 +19,7 @@ public class classHandler {
 	private ArrayList<course> classes;
     
     public classHandler(String user, String semester){
+    	this.classes = (new ArrayList<course>());
         this.userName = user;
         this.semester = semester;
     }

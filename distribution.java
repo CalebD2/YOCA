@@ -22,7 +22,8 @@ public class distribution {
 	private double earnedPoints;
 	private double availablePoints;
     
-    public distribution(String name, double weight){        
+    public distribution(String name, double weight){
+    	this.grades = (new ArrayList<singleGrade>());
         this.name = name;
         this.weight = weight;
         this.earnedPoints = 0;
