@@ -36,6 +36,14 @@ public class classHandler {
         return userName;
     }
     
+    public String[] listCourses(){
+        ArrayList<String> temp = new ArrayList<String>();
+        String[] output;
+        for(int i = 0; i < classes.size();i++) temp.add(classes.get(i).getName());
+        output = temp.toArray(new String[temp.size()]);
+        return output;
+    }
+    
     public String getSemester(){
         return semester;
     }

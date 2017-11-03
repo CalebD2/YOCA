@@ -34,6 +34,14 @@ public class GUI extends javax.swing.JFrame {
         semesters.set(index, semester);
     }
     
+    public String[] listSemester(String input){
+        ArrayList<String> temp = new ArrayList<String>();
+        String[] output;
+        for(int i = 0; i < semesters.size();i++)if(semesters.get(i).getSemester().equals(input)) temp.add(semesters.get(i).getSemester());
+        output = temp.toArray(new String[temp.size()]);
+        return output;
+    }
+    
     
 
     /**
@@ -91,7 +99,6 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("YOCA - Your Own Class Assistant");
-        setPreferredSize(new java.awt.Dimension(510, 515));
         setResizable(false);
 
         panHome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -124,6 +131,11 @@ public class GUI extends javax.swing.JFrame {
         panOverview.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         overviewCBoxSemester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Semester...", "Item 2", "Item 3", "Item 4" }));
+        overviewCBoxSemester.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                overviewCBoxSemesterActionPerformed1(evt);
+            }
+        });
 
         overviewCBoxClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Class...", "Item 2", "Item 3", "Item 4" }));
 
@@ -224,18 +236,23 @@ public class GUI extends javax.swing.JFrame {
         editClassesTitle.setText("Edit Classes");
 
         editCBoxSemester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Semester...", "Item 2", "Item 3", "Item 4" }));
-        editCBoxSemester.setToolTipText("Select your class here");
+        editCBoxSemester.setToolTipText("Select your semester here");
         editCBoxSemester.setPreferredSize(new java.awt.Dimension(91, 20));
 
         editButAddRemSemester.setText("Add/Remove Semester");
+        editButAddRemSemester.setToolTipText("Opens a window to add or remove a semester");
 
         editCBoxClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Class...", "Item 2", "Item 3", "Item 4" }));
+        editCBoxClass.setToolTipText("Select your class here");
 
         editButAddRemClass.setText("Add/Remove Class");
+        editButAddRemClass.setToolTipText("Opens a window to add or remove a class");
 
         editButEditSemester.setText("Edit Semester");
+        editButEditSemester.setToolTipText("Opens a window to edit a semester");
 
         editButEditClass.setText("Edit Class");
+        editButEditClass.setToolTipText("Opens a window to edit a class");
         editButEditClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButEditClassActionPerformed(evt);
@@ -394,6 +411,11 @@ public class GUI extends javax.swing.JFrame {
     private void editButEditClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButEditClassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editButEditClassActionPerformed
+
+    private void overviewCBoxSemesterActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewCBoxSemesterActionPerformed1
+        String selection = (String) overviewCBoxSemester.getSelectedItem();
+        overviewCBoxClass.setModel(new javax.swing.DefaultComboBoxModel(listSemester(selection)));
+    }//GEN-LAST:event_overviewCBoxSemesterActionPerformed1
 
     /**
      * @param args the command line arguments
