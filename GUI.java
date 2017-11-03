@@ -34,15 +34,44 @@ public class GUI extends javax.swing.JFrame {
         semesters.set(index, semester);
     }
     
-    public String[] listSemester(String input){
+    public String[] listSemesters(){
         ArrayList<String> temp = new ArrayList<String>();
         String[] output;
-        for(int i = 0; i < semesters.size();i++)if(semesters.get(i).getSemester().equals(input)) temp.add(semesters.get(i).getSemester());
+        temp.add("Select Semester...");
+        for(int i = 0; i < semesters.size();i++)temp.add(semesters.get(i).getSemester());
         output = temp.toArray(new String[temp.size()]);
         return output;
     }
     
+    public String[] listClasses(String input){
+        ArrayList<String> temp = new ArrayList<String>();
+        String[] output;
+        int index = -1;
+        temp.add("Select Class...");
+        
+        for(int i = 0; i < semesters.size(); i++){
+            if(input.equals(semesters.get(i).getSemester())) index = i;
+        }
+        
+        if(index < semesters.size() && index != -1){
+            for(int j = 0; j < semesters.size();j++)temp.add(semesters.get(index).getClassName(j));
+        }
+        
+        output = temp.toArray(new String[temp.size()]);
+        return output;
+    }
     
+    public String[] getDist(String input){
+        String[] output = null;
+        
+        for(int j = 0; j < semesters.size(); j++){
+            for(int i = 0; i < semesters.get(j).getSize() ;i++){
+                if(semesters.get(j).getClassName(i).equals(input)) output = semesters.get(j).getClassDist(input);
+            }
+        }
+        
+        return output;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -101,6 +130,12 @@ public class GUI extends javax.swing.JFrame {
         setTitle("YOCA - Your Own Class Assistant");
         setResizable(false);
 
+        winTabs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                winTabsMouseClicked(evt);
+            }
+        });
+
         panHome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         homeTitle.setAlignment(java.awt.Label.CENTER);
@@ -138,6 +173,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         overviewCBoxClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Class...", "Item 2", "Item 3", "Item 4" }));
+        overviewCBoxClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                overviewCBoxClassActionPerformed(evt);
+            }
+        });
 
         overviewCBoxDistribution.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Distribution...", "Overall", "Item 3", "Item 4" }));
         overviewCBoxDistribution.setToolTipText("Select your class here");
@@ -413,9 +453,18 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_editButEditClassActionPerformed
 
     private void overviewCBoxSemesterActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewCBoxSemesterActionPerformed1
-        String selection = (String) overviewCBoxSemester.getSelectedItem();
-        overviewCBoxClass.setModel(new javax.swing.DefaultComboBoxModel(listSemester(selection)));
+        overviewCBoxClass.setModel(new javax.swing.DefaultComboBoxModel(listClasses((String) overviewCBoxSemester.getSelectedItem())));
     }//GEN-LAST:event_overviewCBoxSemesterActionPerformed1
+
+    private void winTabsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_winTabsMouseClicked
+        // TODO add your handling code here:
+        overviewCBoxSemester.setModel(new javax.swing.DefaultComboBoxModel(listSemesters()));
+    }//GEN-LAST:event_winTabsMouseClicked
+
+    private void overviewCBoxClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewCBoxClassActionPerformed
+        // TODO add your handling code here:
+        overviewCBoxDistribution.setModel(new javax.swing.DefaultComboBoxModel(getDist((String) overviewCBoxClass.getSelectedItem())));
+    }//GEN-LAST:event_overviewCBoxClassActionPerformed
 
     /**
      * @param args the command line arguments

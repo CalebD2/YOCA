@@ -1,5 +1,6 @@
 package Alpha;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 
 public class course {
@@ -35,6 +36,16 @@ public class course {
 		}
 		return index;
 	}
+        
+        public String[] getDistributions(){
+            ArrayList<String> temp = new ArrayList<String>();
+            
+            for(int i = 0; i < distributions.size(); i++){
+                temp.add(distributions.get(i).getName());
+            }
+            
+            return temp.toArray(new String[temp.size()]);
+        }
 	
 	public void changeName(String name) {
 		this.name = name;

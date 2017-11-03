@@ -44,6 +44,7 @@ public class classHandler {
         return output;
     }
     
+    
     public String getSemester(){
         return semester;
     }
@@ -52,12 +53,26 @@ public class classHandler {
         return classes.get(index).getName();
     }
     
+    public String[] getClassDist(String className){
+        String[] output = null;
+        
+        for(int i = 0; i < classes.size();i++){
+            if(className.equals(classes.get(i).getName())) output = classes.get(i).getDistributions();
+        }
+        
+        return output;
+    }
+    
     public Integer getClassNumber(){
         return classes.size();
     }
     
     public double getClassGrade(int index){
         return classes.get(index).calcGrade();
+    }
+    
+    public int getSize(){
+        return classes.size();
     }
     
 }
