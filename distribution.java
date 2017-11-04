@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Cale
+ * @author Caleb
  */
 
 /// This handles all of the single grades that are entered, which are saved in "grades"
