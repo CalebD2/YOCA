@@ -194,12 +194,12 @@
                           <Component id="overviewDistTitle" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="overviewGradeScroll" alignment="0" pref="213" max="32767" attributes="0"/>
-                          <Component id="overviewGradeNameScroll" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="overviewGradeScroll" pref="290" max="32767" attributes="0"/>
+                          <Component id="overviewGradeNameScroll" max="32767" attributes="0"/>
                           <Component id="overviewDistScroll" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
