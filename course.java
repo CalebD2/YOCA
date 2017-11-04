@@ -39,7 +39,7 @@ public class course {
         
         public String[] getDistributions(){
             ArrayList<String> temp = new ArrayList<String>();
-            
+            temp.add("Select Distribution...");
             for(int i = 0; i < distributions.size(); i++){
                 temp.add(distributions.get(i).getName());
             }

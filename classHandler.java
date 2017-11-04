@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Cale
+ * @author Caleb
  */
 
 /// Stores an array of classes, called gradeHandlers, which store the class's name and array of individual grades
@@ -54,7 +54,7 @@ public class classHandler {
     }
     
     public String[] getClassDist(String className){
-        String[] output = null;
+        String[] output = {"Select Distribution..."};
         
         for(int i = 0; i < classes.size();i++){
             if(className.equals(classes.get(i).getName())) output = classes.get(i).getDistributions();

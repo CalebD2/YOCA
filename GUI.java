@@ -5,7 +5,12 @@
  */
 package Alpha;
 
+import java.awt.event.ComponentListener;
 import java.util.ArrayList;
+import java.lang.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -13,27 +18,36 @@ import java.util.ArrayList;
  */
 public class GUI extends javax.swing.JFrame {
     private ArrayList<classHandler> semesters;
+    semesterAddRem popUp;
     
     /**
      * Creates new form GUI
      */
     public GUI() {
         this.semesters = new ArrayList<classHandler>();
+        popUp = new semesterAddRem(this);
         initComponents();
     }
     
+    // Adds to data directly with a prebuilt semester
     public void addSemester(classHandler semester){
         semesters.add(semester);
     }
     
+    // removes from data directly with indices
     public void removeSemester(int index){
         semesters.remove(index);
     }
     
+    // edits our data directly with an index and semester
     public void editSemester(int index, classHandler semester){
         semesters.set(index, semester);
     }
     
+    /*
+    Used to fill "Select semester" combo box on overview tab
+    Must have "Select semester" in indices 0
+    */
     public String[] listSemesters(){
         ArrayList<String> temp = new ArrayList<String>();
         String[] output;
@@ -43,6 +57,10 @@ public class GUI extends javax.swing.JFrame {
         return output;
     }
     
+    /*
+    Used to fill "Select Class" combo box on overview tab
+    Must have "Select class..." in indices 0
+    */
     public String[] listClasses(String input){
         ArrayList<String> temp = new ArrayList<String>();
         String[] output;
@@ -61,6 +79,10 @@ public class GUI extends javax.swing.JFrame {
         return output;
     }
     
+    /*
+    Used to add to "Select Distribution..." box selection on the Overview tab
+    For this to work, the string "Select Distribution..." must be in indices 0
+    */
     public String[] getDist(String input){
         String[] output = null;
         
@@ -281,6 +303,11 @@ public class GUI extends javax.swing.JFrame {
 
         editButAddRemSemester.setText("Add/Remove Semester");
         editButAddRemSemester.setToolTipText("Opens a window to add or remove a semester");
+        editButAddRemSemester.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButAddRemSemesterActionPerformed(evt);
+            }
+        });
 
         editCBoxClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Class...", "Item 2", "Item 3", "Item 4" }));
         editCBoxClass.setToolTipText("Select your class here");
@@ -439,33 +466,53 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Actions performed when file-> exit is used
     private void fileExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileExitActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_fileExitActionPerformed
 
+    // Actions performed when a selection is made in the distribution combo box in the overview tab
     private void overviewCBoxDistributionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewCBoxDistributionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_overviewCBoxDistributionActionPerformed
 
+    // Actions performed when the edit class button is pressed in the edit tab
     private void editButEditClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButEditClassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editButEditClassActionPerformed
 
+    // Actions performed when a selection is made in the slect semester combo box in the overview tab
+    // Currently sets the list for classes in the overview tab
     private void overviewCBoxSemesterActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewCBoxSemesterActionPerformed1
         overviewCBoxClass.setModel(new javax.swing.DefaultComboBoxModel(listClasses((String) overviewCBoxSemester.getSelectedItem())));
     }//GEN-LAST:event_overviewCBoxSemesterActionPerformed1
-
+    
+    //Actions taken when the tabs panel is clicked
+    // Currently retrieves the list of semesters and fills the select semesters combo box
     private void winTabsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_winTabsMouseClicked
         // TODO add your handling code here:
         overviewCBoxSemester.setModel(new javax.swing.DefaultComboBoxModel(listSemesters()));
     }//GEN-LAST:event_winTabsMouseClicked
-
+    
+    //Actions taken when a selection is made in the classes combo box in the overview tab
+    //Currently fills the distributions from the appropriate class that was chosen
     private void overviewCBoxClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewCBoxClassActionPerformed
         // TODO add your handling code here:
         overviewCBoxDistribution.setModel(new javax.swing.DefaultComboBoxModel(getDist((String) overviewCBoxClass.getSelectedItem())));
     }//GEN-LAST:event_overviewCBoxClassActionPerformed
-
+    
+    /*
+    Actions performed when the Add/Remove Semester button is pressed that is in the edit tab
+    Currently, this makes the add/remove semester pop-up visible
+    Afterwards, the main frame (original GUI) is disabled (is automatically re-enabled when pop up closes, specified in semesterAddRem.java)
+    */
+    private void editButAddRemSemesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButAddRemSemesterActionPerformed
+        // TODO add your handling code here:
+        popUp.setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_editButAddRemSemesterActionPerformed
+    
     /**
      * @param args the command line arguments
      */
