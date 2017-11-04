@@ -52,7 +52,10 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="winTabs" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="winTabs" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -83,7 +86,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="homeTitle" alignment="1" pref="495" max="32767" attributes="0"/>
+                  <Component id="homeTitle" alignment="1" pref="497" max="32767" attributes="0"/>
                   <Component id="homeInfoScroll" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
@@ -146,10 +149,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="overviewCBoxSemester" alignment="1" pref="224" max="32767" attributes="0"/>
+                          <Component id="overviewCBoxSemester" alignment="1" pref="225" max="32767" attributes="0"/>
                           <Component id="overviewGradeNameTitle" alignment="1" max="32767" attributes="0"/>
                           <Component id="overviewGradeNameScroll" alignment="1" max="32767" attributes="0"/>
-                          <Component id="overviewAverageScroll" alignment="0" max="32767" attributes="0"/>
+                          <Component id="overviewAveragePanel" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -165,7 +168,7 @@
                               </Group>
                           </Group>
                           <Component id="overviewCBoxClass" max="32767" attributes="0"/>
-                          <Component id="overviewCBoxDistribution" alignment="0" pref="241" max="32767" attributes="0"/>
+                          <Component id="overviewCBoxDistribution" alignment="0" pref="242" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -181,10 +184,10 @@
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="overviewAverageScroll" max="32767" attributes="0"/>
-                          <Component id="overviewCBoxDistribution" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="overviewCBoxDistribution" pref="31" max="32767" attributes="0"/>
+                          <Component id="overviewAveragePanel" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="overviewGradeNameTitle" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="overviewGradeTitle" min="-2" max="-2" attributes="0"/>
@@ -192,11 +195,11 @@
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="overviewGradeScroll" alignment="0" pref="268" max="32767" attributes="0"/>
+                          <Component id="overviewGradeScroll" alignment="0" pref="213" max="32767" attributes="0"/>
                           <Component id="overviewGradeNameScroll" alignment="0" max="32767" attributes="0"/>
                           <Component id="overviewDistScroll" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -282,23 +285,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JScrollPane" name="overviewAverageScroll">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextPane" name="overviewAverageInfo">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Total Average Here"/>
-                  </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-                  </AccessibilityProperties>
-                </Component>
-              </SubComponents>
-            </Container>
             <Container class="javax.swing.JScrollPane" name="overviewGradeScroll">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -364,6 +350,38 @@
                 <Property name="text" type="java.lang.String" value="Distribution"/>
               </Properties>
             </Component>
+            <Container class="javax.swing.JPanel" name="overviewAveragePanel">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="overviewAverageText" alignment="1" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="overviewAverageText" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="overviewAverageText">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value=" Total Average Goes Here"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panEdit">
@@ -397,7 +415,7 @@
                                   <Component id="editButEditSemester" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="editClassesSeperator" pref="10" max="32767" attributes="0"/>
+                              <Component id="editClassesSeperator" pref="12" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="editButAddRemClass" min="-2" pref="226" max="-2" attributes="0"/>
@@ -469,7 +487,7 @@
                           <Component id="editDistSeperator" max="32767" attributes="0"/>
                           <Component id="editButEditDist" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="49" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -535,12 +553,18 @@
                 <Property name="text" type="java.lang.String" value="Add/Remove Class"/>
                 <Property name="toolTipText" type="java.lang.String" value="Opens a window to add or remove a class"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editButAddRemClassActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="editButEditSemester">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edit Semester"/>
                 <Property name="toolTipText" type="java.lang.String" value="Opens a window to edit a semester"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editButEditSemesterActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="editButEditClass">
               <Properties>
@@ -694,12 +718,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="495" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="497" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="458" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="420" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>

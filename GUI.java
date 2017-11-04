@@ -5,12 +5,7 @@
  */
 package Alpha;
 
-import java.awt.event.ComponentListener;
 import java.util.ArrayList;
-import java.lang.*;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -18,14 +13,20 @@ import java.util.concurrent.TimeUnit;
  */
 public class GUI extends javax.swing.JFrame {
     private ArrayList<classHandler> semesters;
-    semesterAddRem popUp;
+    semesterAddRem popUpAddRemSem;
+    semesterEdit popUpEditSem;
+    classAddRem popUpAddRemClass;
+    classEdit popUpEditClass;
     
     /**
      * Creates new form GUI
      */
     public GUI() {
         this.semesters = new ArrayList<classHandler>();
-        popUp = new semesterAddRem(this);
+        popUpAddRemSem = new semesterAddRem(this);
+        popUpEditSem = new semesterEdit(this);
+        popUpAddRemClass = new classAddRem(this);
+        popUpEditClass = new classEdit(this);
         initComponents();
     }
     
@@ -83,12 +84,12 @@ public class GUI extends javax.swing.JFrame {
     Used to add to "Select Distribution..." box selection on the Overview tab
     For this to work, the string "Select Distribution..." must be in indices 0
     */
-    public String[] getDist(String input){
+    public String[] getDist(String semester, String course){
         String[] output = null;
         
         for(int j = 0; j < semesters.size(); j++){
             for(int i = 0; i < semesters.get(j).getSize() ;i++){
-                if(semesters.get(j).getClassName(i).equals(input)) output = semesters.get(j).getClassDist(input);
+                if(semesters.get(j).getClassName(i).equals(course)) output = semesters.get(j).getClassDist(course);
             }
         }
         
@@ -115,8 +116,6 @@ public class GUI extends javax.swing.JFrame {
         overviewCBoxDistribution = new javax.swing.JComboBox<>();
         overviewGradeNameScroll = new javax.swing.JScrollPane();
         overviewGradeNameInfo = new javax.swing.JList<>();
-        overviewAverageScroll = new javax.swing.JScrollPane();
-        overviewAverageInfo = new javax.swing.JTextPane();
         overviewGradeScroll = new javax.swing.JScrollPane();
         overviewGradeInfo = new javax.swing.JList<>();
         overviewDistScroll = new javax.swing.JScrollPane();
@@ -124,6 +123,8 @@ public class GUI extends javax.swing.JFrame {
         overviewGradeNameTitle = new java.awt.Label();
         overviewGradeTitle = new java.awt.Label();
         overviewDistTitle = new java.awt.Label();
+        overviewAveragePanel = new javax.swing.JPanel();
+        overviewAverageText = new javax.swing.JLabel();
         panEdit = new javax.swing.JPanel();
         editClassesTitle = new java.awt.Label();
         editCBoxSemester = new javax.swing.JComboBox<>();
@@ -171,7 +172,7 @@ public class GUI extends javax.swing.JFrame {
         panHome.setLayout(panHomeLayout);
         panHomeLayout.setHorizontalGroup(
             panHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(homeTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+            .addComponent(homeTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
             .addComponent(homeInfoScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         panHomeLayout.setVerticalGroup(
@@ -216,10 +217,6 @@ public class GUI extends javax.swing.JFrame {
         });
         overviewGradeNameScroll.setViewportView(overviewGradeNameInfo);
 
-        overviewAverageInfo.setText("Total Average Here");
-        overviewAverageScroll.setViewportView(overviewAverageInfo);
-        overviewAverageInfo.getAccessibleContext().setAccessibleName("");
-
         overviewGradeInfo.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -240,6 +237,22 @@ public class GUI extends javax.swing.JFrame {
 
         overviewDistTitle.setText("Distribution");
 
+        overviewAveragePanel.setBackground(new java.awt.Color(255, 255, 255));
+        overviewAveragePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        overviewAverageText.setText(" Total Average Goes Here");
+
+        javax.swing.GroupLayout overviewAveragePanelLayout = new javax.swing.GroupLayout(overviewAveragePanel);
+        overviewAveragePanel.setLayout(overviewAveragePanelLayout);
+        overviewAveragePanelLayout.setHorizontalGroup(
+            overviewAveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(overviewAverageText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        overviewAveragePanelLayout.setVerticalGroup(
+            overviewAveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(overviewAverageText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panOverviewLayout = new javax.swing.GroupLayout(panOverview);
         panOverview.setLayout(panOverviewLayout);
         panOverviewLayout.setHorizontalGroup(
@@ -247,10 +260,10 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(panOverviewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panOverviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(overviewCBoxSemester, javax.swing.GroupLayout.Alignment.TRAILING, 0, 224, Short.MAX_VALUE)
+                    .addComponent(overviewCBoxSemester, javax.swing.GroupLayout.Alignment.TRAILING, 0, 225, Short.MAX_VALUE)
                     .addComponent(overviewGradeNameTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(overviewGradeNameScroll, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(overviewAverageScroll))
+                    .addComponent(overviewAveragePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panOverviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panOverviewLayout.createSequentialGroup()
@@ -262,7 +275,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(overviewDistScroll)
                             .addComponent(overviewDistTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(overviewCBoxClass, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(overviewCBoxDistribution, 0, 241, Short.MAX_VALUE))
+                    .addComponent(overviewCBoxDistribution, 0, 242, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panOverviewLayout.setVerticalGroup(
@@ -274,8 +287,8 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(overviewCBoxClass))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panOverviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(overviewAverageScroll)
-                    .addComponent(overviewCBoxDistribution, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(overviewCBoxDistribution, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(overviewAveragePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panOverviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(overviewGradeNameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,10 +296,10 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(overviewDistTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panOverviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(overviewGradeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                    .addComponent(overviewGradeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                     .addComponent(overviewGradeNameScroll)
                     .addComponent(overviewDistScroll))
-                .addGap(71, 71, 71))
+                .addGap(88, 88, 88))
         );
 
         winTabs.addTab("Class Overview", panOverview);
@@ -314,9 +327,19 @@ public class GUI extends javax.swing.JFrame {
 
         editButAddRemClass.setText("Add/Remove Class");
         editButAddRemClass.setToolTipText("Opens a window to add or remove a class");
+        editButAddRemClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButAddRemClassActionPerformed(evt);
+            }
+        });
 
         editButEditSemester.setText("Edit Semester");
         editButEditSemester.setToolTipText("Opens a window to edit a semester");
+        editButEditSemester.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButEditSemesterActionPerformed(evt);
+            }
+        });
 
         editButEditClass.setText("Edit Class");
         editButEditClass.setToolTipText("Opens a window to edit a class");
@@ -360,7 +383,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(editButAddRemSemester, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(editButEditSemester, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(editClassesSeperator, javax.swing.GroupLayout.DEFAULT_SIZE, 10, Short.MAX_VALUE)
+                        .addComponent(editClassesSeperator, javax.swing.GroupLayout.DEFAULT_SIZE, 12, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(editButAddRemClass, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -418,7 +441,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(editButAddRemDist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editDistSeperator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editButEditDist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         winTabs.addTab("Edit Classes", panEdit);
@@ -429,11 +452,11 @@ public class GUI extends javax.swing.JFrame {
         panPredict.setLayout(panPredictLayout);
         panPredictLayout.setHorizontalGroup(
             panPredictLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
+            .addGap(0, 497, Short.MAX_VALUE)
         );
         panPredictLayout.setVerticalGroup(
             panPredictLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 458, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
 
         winTabs.addTab("Predict!", panPredict);
@@ -460,7 +483,9 @@ public class GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(winTabs)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(winTabs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -480,6 +505,8 @@ public class GUI extends javax.swing.JFrame {
     // Actions performed when the edit class button is pressed in the edit tab
     private void editButEditClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButEditClassActionPerformed
         // TODO add your handling code here:
+        popUpEditClass.setVisible(true);
+        this.setEnabled(false);
     }//GEN-LAST:event_editButEditClassActionPerformed
 
     // Actions performed when a selection is made in the slect semester combo box in the overview tab
@@ -499,7 +526,7 @@ public class GUI extends javax.swing.JFrame {
     //Currently fills the distributions from the appropriate class that was chosen
     private void overviewCBoxClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overviewCBoxClassActionPerformed
         // TODO add your handling code here:
-        overviewCBoxDistribution.setModel(new javax.swing.DefaultComboBoxModel(getDist((String) overviewCBoxClass.getSelectedItem())));
+        overviewCBoxDistribution.setModel(new javax.swing.DefaultComboBoxModel(getDist((String) overviewCBoxClass.getSelectedItem(),"")));
     }//GEN-LAST:event_overviewCBoxClassActionPerformed
     
     /*
@@ -509,9 +536,26 @@ public class GUI extends javax.swing.JFrame {
     */
     private void editButAddRemSemesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButAddRemSemesterActionPerformed
         // TODO add your handling code here:
-        popUp.setVisible(true);
+        popUpAddRemSem.setVisible(true);
         this.setEnabled(false);
     }//GEN-LAST:event_editButAddRemSemesterActionPerformed
+
+    /*
+    Actions performed when the Edit Semester button is pressed that is in the edit tab
+    Currently, this makes the Edit semester pop-up visible
+    Afterwards, the main frame (original GUI) is disabled (is automatically re-enabled when pop up closes, specified in semesterEdit.java)
+    */
+    private void editButEditSemesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButEditSemesterActionPerformed
+        // TODO add your handling code here:
+        popUpEditSem.setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_editButEditSemesterActionPerformed
+
+    private void editButAddRemClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButAddRemClassActionPerformed
+        // TODO add your handling code here:
+        popUpAddRemClass.setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_editButAddRemClassActionPerformed
     
     /**
      * @param args the command line arguments
@@ -542,8 +586,8 @@ public class GUI extends javax.swing.JFrame {
     private java.awt.Label homeTitle;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu mnuFile;
-    private javax.swing.JTextPane overviewAverageInfo;
-    private javax.swing.JScrollPane overviewAverageScroll;
+    private javax.swing.JPanel overviewAveragePanel;
+    private javax.swing.JLabel overviewAverageText;
     private javax.swing.JComboBox<String> overviewCBoxClass;
     private javax.swing.JComboBox<String> overviewCBoxDistribution;
     private javax.swing.JComboBox<String> overviewCBoxSemester;
