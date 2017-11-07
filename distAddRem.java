@@ -88,6 +88,9 @@ public class distAddRem extends javax.swing.JFrame {
             }
         });
         addDistNameText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addDistNameTextMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 addDistNameTextMouseEntered(evt);
             }
@@ -191,7 +194,7 @@ public class distAddRem extends javax.swing.JFrame {
             panelRemDistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRemDistLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(remDistCBoxSemester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(remDistCBoxSemester, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(remDistCBoxClass, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -276,16 +279,21 @@ public class distAddRem extends javax.swing.JFrame {
 
     private void addDistNameTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDistNameTextMouseEntered
         // TODO add your handling code here:
-        if(addDistNameText.getText().equals("ex. Exam")){
-            addDistNameText.setText("");
-            addDistNameText.setForeground(new java.awt.Color(0, 0, 0));
-        }
+        
     }//GEN-LAST:event_addDistNameTextMouseEntered
 
     private void addDistNameTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addDistNameTextFocusLost
         // TODO add your handling code here:
         if(addDistNameText.getText().equals(""))addDistNameTextReset();
     }//GEN-LAST:event_addDistNameTextFocusLost
+
+    private void addDistNameTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDistNameTextMouseClicked
+        // TODO add your handling code here:
+        if(addDistNameText.getText().equals("ex. Exam")){
+            addDistNameText.setText("");
+            addDistNameText.setForeground(new java.awt.Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_addDistNameTextMouseClicked
 
     /**
      * @param args the command line arguments

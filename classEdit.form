@@ -69,8 +69,8 @@
         <Container class="javax.swing.JPanel" name="panelEditClass">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Edit Semester">
-                <Property name="tabTitle" type="java.lang.String" value="Edit Semester"/>
+              <JTabbedPaneConstraints tabName="Edit Class">
+                <Property name="tabTitle" type="java.lang.String" value="Edit Class"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -232,7 +232,7 @@
               </Properties>
               <Events>
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="editClassNameTextFocusLost"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="editClassNameTextMouseEntered"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="editClassNameTextMouseClicked"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="editClassCodeText">
@@ -244,7 +244,7 @@
               </Properties>
               <Events>
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="editClassCodeTextFocusLost"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="editClassCodeTextMouseEntered"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="editClassCodeTextMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>

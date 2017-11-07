@@ -91,8 +91,8 @@ public class classAddRem extends javax.swing.JFrame {
             }
         });
         addClassNameText.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addClassNameTextMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addClassNameTextMouseClicked(evt);
             }
         });
 
@@ -104,8 +104,8 @@ public class classAddRem extends javax.swing.JFrame {
             }
         });
         addClassCodeText.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addClassCodeTextMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addClassCodeTextMouseClicked(evt);
             }
         });
 
@@ -138,19 +138,19 @@ public class classAddRem extends javax.swing.JFrame {
             .addGroup(panelAddClassLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(addClassCBoxSemester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelAddClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(addClassNameTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addClassNameText))
+                    .addComponent(addClassNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelAddClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(addClassCodeText)
-                    .addComponent(addClassCodeTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(addClassCodeTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelAddClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButCancel)
                     .addComponent(addButCreateClass))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Add Class", panelAddClass);
@@ -231,7 +231,7 @@ public class classAddRem extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("panelAddRemClass");
@@ -278,22 +278,6 @@ public class classAddRem extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_remClassCBoxSemester1ActionPerformed1
 
-    private void addClassCodeTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addClassCodeTextMouseEntered
-        // TODO add your handling code here:
-        if(addClassCodeText.getText().equals("ex. 1441")){
-            addClassCodeText.setText("");
-            addClassCodeText.setForeground(new java.awt.Color(0, 0, 0));
-        }
-    }//GEN-LAST:event_addClassCodeTextMouseEntered
-
-    private void addClassNameTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addClassNameTextMouseEntered
-        // TODO add your handling code here:
-        if(addClassNameText.getText().equals("ex. Biology")){
-            addClassNameText.setText("");
-            addClassNameText.setForeground(new java.awt.Color(0, 0, 0));
-        }
-    }//GEN-LAST:event_addClassNameTextMouseEntered
-
     private void addClassNameTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addClassNameTextFocusLost
         // TODO add your handling code here:
         if(addClassNameText.getText().equals(""))addClassNameTextReset();
@@ -303,6 +287,22 @@ public class classAddRem extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(addClassCodeText.getText().equals(""))addClassCodeTextReset();
     }//GEN-LAST:event_addClassCodeTextFocusLost
+
+    private void addClassNameTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addClassNameTextMouseClicked
+        // TODO add your handling code here:
+        if(addClassNameText.getText().equals("ex. Biology")){
+            addClassNameText.setText("");
+            addClassNameText.setForeground(new java.awt.Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_addClassNameTextMouseClicked
+
+    private void addClassCodeTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addClassCodeTextMouseClicked
+        // TODO add your handling code here:
+        if(addClassCodeText.getText().equals("ex. 1441")){
+            addClassCodeText.setText("");
+            addClassCodeText.setForeground(new java.awt.Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_addClassCodeTextMouseClicked
 
     /**
      * @param args the command line arguments

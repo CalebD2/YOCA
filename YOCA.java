@@ -16,6 +16,8 @@ public class YOCA {
      */
     public static void main(String[] args) {
         new GUI().setVisible(true); // This is currently used as an example. This will be refined later for actual purpose
+        //semesterAddRem popUp = new semesterAddRem();
+        //popUp.setVisible(true);
     }
     
 }
