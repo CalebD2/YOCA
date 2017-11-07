@@ -6,45 +6,53 @@
 package Alpha;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 /**
  *
  * @author Caleb
  */
 public class GUI extends javax.swing.JFrame {
-    private ArrayList<classHandler> semesters;
+    private Hashtable<String, classHandler> semesters;
     semesterAddRem popUpAddRemSem;
     semesterEdit popUpEditSem;
     classAddRem popUpAddRemClass;
     classEdit popUpEditClass;
-    distAddRem popUpAddRemDist;
     
     /**
      * Creates new form GUI
      */
     public GUI() {
-        semesters = new ArrayList<classHandler>();
+        this.semesters = new Hashtable<String, classHandler>();
         popUpAddRemSem = new semesterAddRem(this);
         popUpEditSem = new semesterEdit(this);
         popUpAddRemClass = new classAddRem(this);
         popUpEditClass = new classEdit(this);
-        popUpAddRemDist = new distAddRem(this);
         initComponents();
     }
     
     // Adds to data directly with a prebuilt semester
     public void addSemester(classHandler semester){
-        semesters.add(semester);
+        semesters.put(semester.getName(), semester);
     }
     
     // removes from data directly with indices
-    public void removeSemester(int index){
-        semesters.remove(index);
+    public void removeSemester(String name){
+        semesters.remove(name);
     }
     
     // edits our data directly with an index and semester
-    public void editSemester(int index, classHandler semester){
-        semesters.set(index, semester);
+    public boolean editSemester(String name, String replace){
+    	 if(semesters.contains(replace)) {
+	    		classHandler temp = semesters.get(replace);
+		    	temp.changeName(name);
+		    	semesters.remove(replace);
+		    	semesters.put(name, temp);
+		    	return true;
+		    }
+		    else {
+		    	return false;
+		    }
     }
     
     /*
@@ -53,33 +61,17 @@ public class GUI extends javax.swing.JFrame {
     */
     public String[] listSemesters(){
         ArrayList<String> temp = new ArrayList<String>();
-        String[] output;
         temp.add("Select Semester...");
-        for(int i = 0; i < semesters.size();i++)temp.add(semesters.get(i).getSemester());
-        output = temp.toArray(new String[temp.size()]);
-        return output;
+        for(String keys:semesters.keySet()) temp.add(semesters.get(keys).getName());
+        return temp.toArray(new String[temp.size()]);
     }
     
     /*
     Used to fill "Select Class" combo box on overview tab
     Must have "Select class..." in indices 0
     */
-    public String[] listClasses(String input){
-        ArrayList<String> temp = new ArrayList<String>();
-        String[] output;
-        int index = -1;
-        temp.add("Select Class...");
-        
-        for(int i = 0; i < semesters.size(); i++){
-            if(input.equals(semesters.get(i).getSemester())) index = i;
-        }
-        
-        if(index < semesters.size() && index != -1){
-            for(int j = 0; j < semesters.size();j++)temp.add(semesters.get(index).getClassName(j));
-        }
-        
-        output = temp.toArray(new String[temp.size()]);
-        return output;
+    public String[] listClasses(String name){
+        return semesters.get(name).listCourses();
     }
     
     /*
@@ -87,15 +79,15 @@ public class GUI extends javax.swing.JFrame {
     For this to work, the string "Select Distribution..." must be in indices 0
     */
     public String[] getDist(String semester, String course){
-        String[] output = null;
-        
-        for(int j = 0; j < semesters.size(); j++){
-            for(int i = 0; i < semesters.get(j).getSize() ;i++){
-                if(semesters.get(j).getClassName(i).equals(course)) output = semesters.get(j).getClassDist(course);
-            }
-        }
-        
-        return output;
+        return semesters.get(semester).getClassDist(course);
+    }
+    
+    public distribution getSingleDist(String semester, String className, String dist) {
+    	return semesters.get(semester).getSingleDist(className, dist);
+    }
+    
+    public singleGrade getSingleGrade(String semester, String className, String dist, String grade) {
+    	return semesters.get(semester).getSingleGrade(className, dist, grade);
     }
 
     /**
@@ -367,11 +359,6 @@ public class GUI extends javax.swing.JFrame {
         editCBoxDistClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Class...", "Item 2", "Item 3", "Item 4" }));
 
         editButAddRemDist.setText("Add/Remove Distribution");
-        editButAddRemDist.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editButAddRemDistActionPerformed(evt);
-            }
-        });
 
         editButEditDist.setText("Edit Distribution");
 
@@ -563,12 +550,6 @@ public class GUI extends javax.swing.JFrame {
         popUpAddRemClass.setVisible(true);
         this.setEnabled(false);
     }//GEN-LAST:event_editButAddRemClassActionPerformed
-
-    private void editButAddRemDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButAddRemDistActionPerformed
-        // TODO add your handling code here:
-        popUpAddRemDist.setVisible(true);
-        this.setEnabled(false);
-    }//GEN-LAST:event_editButAddRemDistActionPerformed
     
     /**
      * @param args the command line arguments

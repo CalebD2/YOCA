@@ -6,10 +6,11 @@
 package Alpha;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 /**
  *
- * @author Caleb
+ * @author Cale
  */
 
 /// This handles all of the single grades that are entered, which are saved in "grades"
@@ -17,35 +18,57 @@ public class distribution {
     ///Name is the class name
 
 	private String name;
-	private ArrayList<singleGrade> grades;
+	private Hashtable<String, singleGrade> grades;
 	private double weight;
 	private double earnedPoints;
 	private double availablePoints;
     
     public distribution(String name, double weight){
-    	this.grades = (new ArrayList<singleGrade>());
+    	this.grades = (new Hashtable<String, singleGrade>());
         this.name = name;
         this.weight = weight;
         this.earnedPoints = 0;
         this.availablePoints = 0;
     }
     
-    public int enterGrade(String gradeName, double total, double grade){
+    public boolean enterGrade(String gradeName, double total, double grade){
     	double weight = 0;
     	weight = this.weight/grades.size();
-        grades.add(new singleGrade(gradeName, total, grade,weight));
-        return 0;
+    	if(grades.contains(gradeName)) {
+    		return false;
+    	}
+    	else {
+        	grades.put(gradeName, new singleGrade(gradeName, total, grade,weight));
+        	return true;
+    	}
     }
     
-    public int removeGrade(int location){
-        grades.remove(location);
-        return 0;
+    public boolean removeGrade(String name){
+        if(grades.contains(name)) {
+    		grades.remove(name);
+    		return true;
+        }
+        else
+        	return false;
+    }
+    
+    public singleGrade getSingleGrade(String name) {
+    	return grades.get(name);
+    }
+    
+    public String[] getGrades() {
+    	ArrayList<String> temp = new ArrayList<String>();
+    	temp.add("Select Semester...");
+    	for(String keys:grades.keySet()) {
+    		temp.add(grades.get(keys).getGradeName());
+    	}
+    	return temp.toArray(new String[temp.size()]);
     }
    
 	public void editWeight(double weight) {
     	this.weight = weight;
-    	for(int i=0; i<grades.size(); i++) {
-    		grades.get(i).changeWeight(weight/grades.size());
+    	for(String keys:grades.keySet()) {
+    		grades.get(keys).changeWeight(weight/grades.size());
     	}
     }
     
@@ -63,15 +86,17 @@ public class distribution {
         return estGrade;
     }
     
-    public int findGrade(String name) {
-    	int index = -1;
-    	for(int i=0; i<grades.size(); i++) {
-    		if(grades.get(i).getGradeName()==name) {
-    			index = i;
-    			break;
-    		}
-    	}
-    	return index;
+    public boolean changeGradeName(String name, String replace) {
+    	 if(grades.contains(replace)) {
+     		singleGrade temp = grades.get(replace);
+ 	    	temp.changeName(name);
+ 	    	grades.remove(replace);
+ 	    	grades.put(name, temp);
+ 	    	return true;
+ 	    }
+ 	    else {
+ 	    	return false;
+ 	    }
     }
     
     public Integer getGradeNumber(){
@@ -80,6 +105,10 @@ public class distribution {
     
     public String getName(){
         return name;
+    }
+    
+    public void changeName(String name) {
+    	this.name = name;
     }
     
     public double getGrade() {
