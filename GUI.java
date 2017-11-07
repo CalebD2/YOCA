@@ -17,16 +17,18 @@ public class GUI extends javax.swing.JFrame {
     semesterEdit popUpEditSem;
     classAddRem popUpAddRemClass;
     classEdit popUpEditClass;
+    distAddRem popUpAddRemDist;
     
     /**
      * Creates new form GUI
      */
     public GUI() {
-        this.semesters = new ArrayList<classHandler>();
+        semesters = new ArrayList<classHandler>();
         popUpAddRemSem = new semesterAddRem(this);
         popUpEditSem = new semesterEdit(this);
         popUpAddRemClass = new classAddRem(this);
         popUpEditClass = new classEdit(this);
+        popUpAddRemDist = new distAddRem(this);
         initComponents();
     }
     
@@ -365,6 +367,11 @@ public class GUI extends javax.swing.JFrame {
         editCBoxDistClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Class...", "Item 2", "Item 3", "Item 4" }));
 
         editButAddRemDist.setText("Add/Remove Distribution");
+        editButAddRemDist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButAddRemDistActionPerformed(evt);
+            }
+        });
 
         editButEditDist.setText("Edit Distribution");
 
@@ -556,6 +563,12 @@ public class GUI extends javax.swing.JFrame {
         popUpAddRemClass.setVisible(true);
         this.setEnabled(false);
     }//GEN-LAST:event_editButAddRemClassActionPerformed
+
+    private void editButAddRemDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButAddRemDistActionPerformed
+        // TODO add your handling code here:
+        popUpAddRemDist.setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_editButAddRemDistActionPerformed
     
     /**
      * @param args the command line arguments

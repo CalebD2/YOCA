@@ -675,6 +675,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add/Remove Distribution"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editButAddRemDistActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.Box$Filler" name="editDistSeperator">
               <Properties>

@@ -23,7 +23,7 @@
     </Menu>
   </NonVisualComponents>
   <Properties>
-    <Property name="title" type="java.lang.String" value="Add/Remove Class"/>
+    <Property name="title" type="java.lang.String" value="Add/Remove Distribution"/>
     <Property name="alwaysOnTop" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
@@ -54,7 +54,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" min="-2" pref="164" max="-2" attributes="0"/>
+          <Component id="jTabbedPane1" min="-2" pref="207" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -66,11 +66,11 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="panelAddClass">
+        <Container class="javax.swing.JPanel" name="panelAddDist">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Add Class">
-                <Property name="tabTitle" type="java.lang.String" value="Add Class"/>
+              <JTabbedPaneConstraints tabName="Add Distribution">
+                <Property name="tabTitle" type="java.lang.String" value="Add Distribution"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -78,23 +78,24 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="addDistCBoxClass" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="addButCancel" pref="74" max="32767" attributes="0"/>
-                                  <Component id="addClassNameTitle" max="32767" attributes="0"/>
-                                  <Component id="addClassCodeTitle" max="32767" attributes="0"/>
+                                  <Component id="addButCancel" max="32767" attributes="0"/>
+                                  <Component id="addDistNameTitle" max="32767" attributes="0"/>
+                                  <Component id="addDistWeightTitle" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="addButCreateClass" pref="180" max="32767" attributes="0"/>
-                                  <Component id="addClassNameText" max="32767" attributes="0"/>
-                                  <Component id="addClassCodeText" max="32767" attributes="0"/>
+                                  <Component id="addButCreateDist" pref="163" max="32767" attributes="0"/>
+                                  <Component id="addDistNameText" max="32767" attributes="0"/>
+                                  <Component id="addDistSpinnerWeight" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="addClassCBoxSemester" alignment="0" max="32767" attributes="0"/>
+                          <Component id="addDistCBoxSemester" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -104,29 +105,31 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="addClassCBoxSemester" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="addDistCBoxSemester" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="addDistCBoxClass" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="addClassNameTitle" max="32767" attributes="0"/>
-                          <Component id="addClassNameText" min="-2" max="-2" attributes="0"/>
+                          <Component id="addDistNameTitle" max="32767" attributes="0"/>
+                          <Component id="addDistNameText" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="addClassCodeText" max="32767" attributes="0"/>
-                          <Component id="addClassCodeTitle" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="addDistWeightTitle" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="addDistSpinnerWeight" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="addButCancel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="addButCreateClass" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="addButCreateDist" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JComboBox" name="addClassCBoxSemester">
+            <Component class="javax.swing.JComboBox" name="addDistCBoxSemester">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -138,7 +141,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addClassCBoxSemesterActionPerformed1"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addDistCBoxSemesterActionPerformed1"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -152,52 +155,58 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButCancelActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="addButCreateClass">
+            <Component class="javax.swing.JButton" name="addButCreateDist">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Create Class"/>
+                <Property name="text" type="java.lang.String" value="Create Distribution"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="addClassNameText">
+            <Component class="javax.swing.JTextField" name="addDistNameText">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ex. Biology"/>
+                <Property name="text" type="java.lang.String" value="ex. Exam"/>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addClassNameTextFocusLost"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addClassNameTextMouseEntered"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addDistNameTextFocusLost"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addDistNameTextMouseEntered"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="addClassCodeText">
+            <Component class="javax.swing.JLabel" name="addDistNameTitle">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="99" red="99" type="rgb"/>
+                <Property name="text" type="java.lang.String" value="Distribution Name"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="addDistWeightTitle">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Distribution Weight"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="addDistSpinnerWeight">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="addDistCBoxClass">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Select Class..."/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ex. 1441"/>
+                <Property name="toolTipText" type="java.lang.String" value="Select your class here"/>
               </Properties>
-              <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addClassCodeTextFocusLost"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addClassCodeTextMouseEntered"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="addClassNameTitle">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Class Name"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="addClassCodeTitle">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Class Code"/>
-              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="panelRemClass">
+        <Container class="javax.swing.JPanel" name="panelRemDist">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Remove Class">
-                <Property name="tabTitle" type="java.lang.String" value="Remove Class"/>
+              <JTabbedPaneConstraints tabName="Remove Distribution">
+                <Property name="tabTitle" type="java.lang.String" value="Remove Distribution"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -205,16 +214,17 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="remDistCBoxClass" max="32767" attributes="0"/>
                           <Component id="remScrollPane" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="remButCancel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="remButRemClass" pref="189" max="32767" attributes="0"/>
+                              <Component id="remButRemDist" pref="189" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="remClassCBoxSemester1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="remDistCBoxSemester" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -224,15 +234,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="remClassCBoxSemester1" max="32767" attributes="0"/>
+                      <Component id="remDistCBoxSemester" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="remDistCBoxClass" min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="remScrollPane" min="-2" pref="68" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="remButCancel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="remButRemClass" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="remButRemDist" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -271,12 +283,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="remButCancelActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="remButRemClass">
+            <Component class="javax.swing.JButton" name="remButRemDist">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remove Class"/>
+                <Property name="text" type="java.lang.String" value="Remove Distribution"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="remClassCBoxSemester1">
+            <Component class="javax.swing.JComboBox" name="remDistCBoxSemester">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -288,8 +300,24 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="remClassCBoxSemester1ActionPerformed1"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="remDistCBoxSemesterActionPerformed1"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="remDistCBoxClass">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Select Class..."/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Select your class here"/>
+              </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
