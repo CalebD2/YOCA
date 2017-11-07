@@ -91,8 +91,8 @@ public class classAddRem extends javax.swing.JFrame {
             }
         });
         addClassNameText.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addClassNameTextMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addClassNameTextMouseClicked(evt);
             }
         });
 
@@ -104,8 +104,8 @@ public class classAddRem extends javax.swing.JFrame {
             }
         });
         addClassCodeText.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addClassCodeTextMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addClassCodeTextMouseClicked(evt);
             }
         });
 
@@ -278,22 +278,6 @@ public class classAddRem extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_remClassCBoxSemester1ActionPerformed1
 
-    private void addClassCodeTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addClassCodeTextMouseEntered
-        // TODO add your handling code here:
-        if(addClassCodeText.getText().equals("ex. 1441")){
-            addClassCodeText.setText("");
-            addClassCodeText.setForeground(new java.awt.Color(0, 0, 0));
-        }
-    }//GEN-LAST:event_addClassCodeTextMouseEntered
-
-    private void addClassNameTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addClassNameTextMouseEntered
-        // TODO add your handling code here:
-        if(addClassNameText.getText().equals("ex. Biology")){
-            addClassNameText.setText("");
-            addClassNameText.setForeground(new java.awt.Color(0, 0, 0));
-        }
-    }//GEN-LAST:event_addClassNameTextMouseEntered
-
     private void addClassNameTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addClassNameTextFocusLost
         // TODO add your handling code here:
         if(addClassNameText.getText().equals(""))addClassNameTextReset();
@@ -303,6 +287,22 @@ public class classAddRem extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(addClassCodeText.getText().equals(""))addClassCodeTextReset();
     }//GEN-LAST:event_addClassCodeTextFocusLost
+
+    private void addClassNameTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addClassNameTextMouseClicked
+        // TODO add your handling code here:
+        if(addClassNameText.getText().equals("ex. Biology")){
+            addClassNameText.setText("");
+            addClassNameText.setForeground(new java.awt.Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_addClassNameTextMouseClicked
+
+    private void addClassCodeTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addClassCodeTextMouseClicked
+        // TODO add your handling code here:
+        if(addClassCodeText.getText().equals("ex. 1441")){
+            addClassCodeText.setText("");
+            addClassCodeText.setForeground(new java.awt.Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_addClassCodeTextMouseClicked
 
     /**
      * @param args the command line arguments

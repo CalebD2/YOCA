@@ -111,8 +111,8 @@ public class classEdit extends javax.swing.JFrame {
             }
         });
         editClassNameText.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                editClassNameTextMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editClassNameTextMouseClicked(evt);
             }
         });
 
@@ -124,8 +124,8 @@ public class classEdit extends javax.swing.JFrame {
             }
         });
         editClassCodeText.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                editClassCodeTextMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editClassCodeTextMouseClicked(evt);
             }
         });
 
@@ -181,7 +181,7 @@ public class classEdit extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Edit Semester", panelEditClass);
+        jTabbedPane1.addTab("Edit Class", panelEditClass);
 
         jMenu1.setText("File");
 
@@ -244,26 +244,26 @@ public class classEdit extends javax.swing.JFrame {
         if(editClassNameText.getText().equals(""))editClassNameTextReset();
     }//GEN-LAST:event_editClassNameTextFocusLost
 
-    private void editClassNameTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editClassNameTextMouseEntered
-        // TODO add your handling code here:
-        if(editClassNameText.getText().equals("ex. Biology")){
-            editClassNameText.setText("");
-            editClassNameText.setForeground(new java.awt.Color(0, 0, 0));
-        }
-    }//GEN-LAST:event_editClassNameTextMouseEntered
-
     private void editClassCodeTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_editClassCodeTextFocusLost
         // TODO add your handling code here:
         if(editClassCodeText.getText().equals(""))editClassCodeTextReset();
     }//GEN-LAST:event_editClassCodeTextFocusLost
 
-    private void editClassCodeTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editClassCodeTextMouseEntered
+    private void editClassNameTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editClassNameTextMouseClicked
+        // TODO add your handling code here:
+        if(editClassNameText.getText().equals("ex. Biology")){
+            editClassNameText.setText("");
+            editClassNameText.setForeground(new java.awt.Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_editClassNameTextMouseClicked
+
+    private void editClassCodeTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editClassCodeTextMouseClicked
         // TODO add your handling code here:
         if(editClassCodeText.getText().equals("ex. 1441")){
             editClassCodeText.setText("");
             editClassCodeText.setForeground(new java.awt.Color(0, 0, 0));
         }
-    }//GEN-LAST:event_editClassCodeTextMouseEntered
+    }//GEN-LAST:event_editClassCodeTextMouseClicked
 
     /**
      * @param args the command line arguments
