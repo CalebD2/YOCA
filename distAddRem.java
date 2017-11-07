@@ -100,6 +100,9 @@ public class distAddRem extends javax.swing.JFrame {
 
         addDistWeightTitle.setText("Distribution Weight");
 
+        addDistSpinnerWeight.setModel(new javax.swing.SpinnerNumberModel(25.0d, 0.0d, 100.0d, 0.5d));
+        addDistSpinnerWeight.setEditor(new javax.swing.JSpinner.NumberEditor(addDistSpinnerWeight, ".#"));
+
         addDistCBoxClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Class...", "Item 2", "Item 3", "Item 4" }));
         addDistCBoxClass.setToolTipText("Select your class here");
 

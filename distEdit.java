@@ -9,26 +9,21 @@ package Alpha;
  *
  * @author Caleb
  */
-public class classEdit extends javax.swing.JFrame {
+public class distEdit extends javax.swing.JFrame {
     private GUI mainframe;
 
     /**
      * Creates new form semesterAddRem
      * and gets a reference to the window that created this pop-up
      */
-    public classEdit(GUI mainframe) {
+    public distEdit(GUI mainframe) {
         initComponents();
         this.mainframe = mainframe;
     }
     
     private void editClassNameTextReset(){
-        editClassNameText.setForeground(new java.awt.Color(153, 153, 153));
-        editClassNameText.setText("ex. Biology");
-    }
-    
-    private void editClassCodeTextReset(){
-        editClassCodeText.setForeground(new java.awt.Color(153, 153, 153));
-        editClassCodeText.setText("ex. 1441");
+        editDistNameText.setForeground(new java.awt.Color(153, 153, 153));
+        editDistNameText.setText("ex. Biology");
     }
 
 
@@ -42,9 +37,9 @@ public class classEdit extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        panelEditClass = new javax.swing.JPanel();
+        panelEditDist = new javax.swing.JPanel();
         editButCancel = new javax.swing.JButton();
-        editButSubmitClass = new javax.swing.JButton();
+        editButSubmitDist = new javax.swing.JButton();
         remScrollPane = new javax.swing.JScrollPane();
         remList = new javax.swing.JList<>();
         editSeperator = new javax.swing.JSeparator();
@@ -52,18 +47,19 @@ public class classEdit extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        editClassCBoxSemester = new javax.swing.JComboBox<>();
-        editClassNameText = new javax.swing.JTextField();
-        editClassCodeText = new javax.swing.JTextField();
+        editDistCBoxSemester = new javax.swing.JComboBox<>();
+        editDistNameText = new javax.swing.JTextField();
+        addDistSpinnerWeight = new javax.swing.JSpinner();
+        addDistCBoxClass = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
-        setTitle("Edit Class");
+        setTitle("Edit Distribution");
         setAlwaysOnTop(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
-                classEdit.this.windowClosing(evt);
+                distEdit.this.windowClosing(evt);
             }
         });
 
@@ -74,7 +70,7 @@ public class classEdit extends javax.swing.JFrame {
             }
         });
 
-        editButSubmitClass.setText("Submit Changes");
+        editButSubmitDist.setText("Submit Changes");
 
         remList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -83,82 +79,81 @@ public class classEdit extends javax.swing.JFrame {
         });
         remScrollPane.setViewportView(remList);
 
-        jLabel1.setText("Class Name");
+        jLabel1.setText("Distribution Name");
 
-        jLabel2.setText("Class Code");
+        jLabel2.setText("Distribution Weight");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setLabelFor(remScrollPane);
-        jLabel3.setText("Select Class to Change");
+        jLabel3.setText("Select Distribution to Change");
         jLabel3.setToolTipText("");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Enter Preferred Class Name and Code");
+        jLabel4.setText("Enter Distribution Name and Weight");
 
-        editClassCBoxSemester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Semester...", "Item 2", "Item 3", "Item 4" }));
-        editClassCBoxSemester.addActionListener(new java.awt.event.ActionListener() {
+        editDistCBoxSemester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Semester...", "Item 2", "Item 3", "Item 4" }));
+        editDistCBoxSemester.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editClassCBoxSemesterActionPerformed1(evt);
+                editDistCBoxSemesterActionPerformed1(evt);
             }
         });
 
-        editClassNameText.setForeground(new java.awt.Color(153, 153, 153));
-        editClassNameText.setText("ex. Biology");
-        editClassNameText.addFocusListener(new java.awt.event.FocusAdapter() {
+        editDistNameText.setForeground(new java.awt.Color(153, 153, 153));
+        editDistNameText.setText("ex. Exam");
+        editDistNameText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                editClassNameTextFocusLost(evt);
+                editDistNameTextFocusLost(evt);
             }
         });
-        editClassNameText.addMouseListener(new java.awt.event.MouseAdapter() {
+        editDistNameText.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editClassNameTextMouseClicked(evt);
+                editDistNameTextMouseClicked(evt);
             }
         });
 
-        editClassCodeText.setForeground(new java.awt.Color(153, 153, 153));
-        editClassCodeText.setText("ex. 1441");
-        editClassCodeText.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                editClassCodeTextFocusLost(evt);
-            }
-        });
-        editClassCodeText.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editClassCodeTextMouseClicked(evt);
-            }
-        });
+        addDistSpinnerWeight.setModel(new javax.swing.SpinnerNumberModel(25.0d, 0.0d, 100.0d, 0.5d));
+        addDistSpinnerWeight.setEditor(new javax.swing.JSpinner.NumberEditor(addDistSpinnerWeight, ".#"));
 
-        javax.swing.GroupLayout panelEditClassLayout = new javax.swing.GroupLayout(panelEditClass);
-        panelEditClass.setLayout(panelEditClassLayout);
-        panelEditClassLayout.setHorizontalGroup(
-            panelEditClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        addDistCBoxClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Class...", "Item 2", "Item 3", "Item 4" }));
+        addDistCBoxClass.setToolTipText("Select your class here");
+
+        javax.swing.GroupLayout panelEditDistLayout = new javax.swing.GroupLayout(panelEditDist);
+        panelEditDist.setLayout(panelEditDistLayout);
+        panelEditDistLayout.setHorizontalGroup(
+            panelEditDistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelEditClassLayout.createSequentialGroup()
+            .addGroup(panelEditDistLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelEditClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(editClassCBoxSemester, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelEditDistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editDistCBoxSemester, 0, 233, Short.MAX_VALUE)
+                    .addComponent(addDistCBoxClass, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editSeperator)
                     .addComponent(remScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelEditClassLayout.createSequentialGroup()
-                        .addGroup(panelEditClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(editButCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelEditDistLayout.createSequentialGroup()
+                        .addComponent(editButCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelEditClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(editButSubmitClass, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                            .addComponent(editClassNameText)
-                            .addComponent(editClassCodeText))))
+                        .addComponent(editButSubmitDist, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))
+                    .addGroup(panelEditDistLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelEditDistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editDistNameText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(addDistSpinnerWeight)))
+                    .addGroup(panelEditDistLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(130, 130, 130)))
                 .addContainerGap())
         );
-        panelEditClassLayout.setVerticalGroup(
-            panelEditClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditClassLayout.createSequentialGroup()
+        panelEditDistLayout.setVerticalGroup(
+            panelEditDistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditDistLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editClassCBoxSemester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(editDistCBoxSemester, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addDistCBoxClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(remScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,21 +162,21 @@ public class classEdit extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelEditClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelEditDistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editClassNameText))
+                    .addComponent(editDistNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelEditClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelEditDistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editClassCodeText))
+                    .addComponent(addDistSpinnerWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelEditClassLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editButSubmitClass)
+                .addGroup(panelEditDistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editButSubmitDist)
                     .addComponent(editButCancel))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGap(198, 198, 198))
         );
 
-        jTabbedPane1.addTab("Edit Class", panelEditClass);
+        jTabbedPane1.addTab("Edit Class", panelEditDist);
 
         jMenu1.setText("File");
 
@@ -205,7 +200,7 @@ public class classEdit extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("panelAddRemSem");
@@ -235,46 +230,34 @@ public class classEdit extends javax.swing.JFrame {
         mainframe.setEnabled(true);
     }//GEN-LAST:event_windowClosing
 
-    private void editClassCBoxSemesterActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editClassCBoxSemesterActionPerformed1
-        editClassCBoxSemester.setModel(new javax.swing.DefaultComboBoxModel(mainframe.listClasses((String) editClassCBoxSemester.getSelectedItem())));
-    }//GEN-LAST:event_editClassCBoxSemesterActionPerformed1
+    private void editDistCBoxSemesterActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDistCBoxSemesterActionPerformed1
+        editDistCBoxSemester.setModel(new javax.swing.DefaultComboBoxModel(mainframe.listClasses((String) editDistCBoxSemester.getSelectedItem())));
+    }//GEN-LAST:event_editDistCBoxSemesterActionPerformed1
 
-    private void editClassNameTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_editClassNameTextFocusLost
+    private void editDistNameTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_editDistNameTextFocusLost
         // TODO add your handling code here:
-        if(editClassNameText.getText().equals(""))editClassNameTextReset();
-    }//GEN-LAST:event_editClassNameTextFocusLost
+        if(editDistNameText.getText().equals(""))editClassNameTextReset();
+    }//GEN-LAST:event_editDistNameTextFocusLost
 
-    private void editClassCodeTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_editClassCodeTextFocusLost
+    private void editDistNameTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editDistNameTextMouseClicked
         // TODO add your handling code here:
-        if(editClassCodeText.getText().equals(""))editClassCodeTextReset();
-    }//GEN-LAST:event_editClassCodeTextFocusLost
-
-    private void editClassNameTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editClassNameTextMouseClicked
-        // TODO add your handling code here:
-        if(editClassNameText.getText().equals("ex. Biology")){
-            editClassNameText.setText("");
-            editClassNameText.setForeground(new java.awt.Color(0, 0, 0));
+        if(editDistNameText.getText().equals("ex. Exam")){
+            editDistNameText.setText("");
+            editDistNameText.setForeground(new java.awt.Color(0, 0, 0));
         }
-    }//GEN-LAST:event_editClassNameTextMouseClicked
-
-    private void editClassCodeTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editClassCodeTextMouseClicked
-        // TODO add your handling code here:
-        if(editClassCodeText.getText().equals("ex. 1441")){
-            editClassCodeText.setText("");
-            editClassCodeText.setForeground(new java.awt.Color(0, 0, 0));
-        }
-    }//GEN-LAST:event_editClassCodeTextMouseClicked
+    }//GEN-LAST:event_editDistNameTextMouseClicked
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> addDistCBoxClass;
+    private javax.swing.JSpinner addDistSpinnerWeight;
     private javax.swing.JButton editButCancel;
-    private javax.swing.JButton editButSubmitClass;
-    private javax.swing.JComboBox<String> editClassCBoxSemester;
-    private javax.swing.JTextField editClassCodeText;
-    private javax.swing.JTextField editClassNameText;
+    private javax.swing.JButton editButSubmitDist;
+    private javax.swing.JComboBox<String> editDistCBoxSemester;
+    private javax.swing.JTextField editDistNameText;
     private javax.swing.JSeparator editSeperator;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -284,7 +267,7 @@ public class classEdit extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JPanel panelEditClass;
+    private javax.swing.JPanel panelEditDist;
     private javax.swing.JList<String> remList;
     private javax.swing.JScrollPane remScrollPane;
     // End of variables declaration//GEN-END:variables

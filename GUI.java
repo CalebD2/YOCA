@@ -18,6 +18,7 @@ public class GUI extends javax.swing.JFrame {
     classAddRem popUpAddRemClass;
     classEdit popUpEditClass;
     distAddRem popUpAddRemDist;
+    distEdit popUpEditDist;
     
     /**
      * Creates new form GUI
@@ -29,6 +30,7 @@ public class GUI extends javax.swing.JFrame {
         popUpAddRemClass = new classAddRem(this);
         popUpEditClass = new classEdit(this);
         popUpAddRemDist = new distAddRem(this);
+        popUpEditDist = new distEdit(this);
         initComponents();
     }
     
@@ -374,6 +376,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         editButEditDist.setText("Edit Distribution");
+        editButEditDist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButEditDistActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panEditLayout = new javax.swing.GroupLayout(panEdit);
         panEdit.setLayout(panEditLayout);
@@ -569,6 +576,12 @@ public class GUI extends javax.swing.JFrame {
         popUpAddRemDist.setVisible(true);
         this.setEnabled(false);
     }//GEN-LAST:event_editButAddRemDistActionPerformed
+
+    private void editButEditDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButEditDistActionPerformed
+        // TODO add your handling code here:
+        popUpEditDist.setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_editButEditDistActionPerformed
     
     /**
      * @param args the command line arguments
