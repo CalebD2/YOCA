@@ -7,7 +7,7 @@ package Alpha;
 
 /**
  *
- * @author Caleb
+ * @author Cale
  */
 public class singleGrade {
 	private String gradeName;
