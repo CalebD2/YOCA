@@ -6,30 +6,37 @@
 package Alpha;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 /**
  *
- * @author Caleb
+ * @author Cale
  */
 
 /// Stores an array of classes, called gradeHandlers, which store the class's name and array of individual grades
 public class classHandler { 
 	private String userName;
 	private String semester;
-	private ArrayList<course> classes;
+	private Hashtable<String, course> classes;
     
     public classHandler(String user, String semester){
-    	this.classes = (new ArrayList<course>());
+    	this.classes = (new Hashtable<String, course>());
         this.userName = user;
         this.semester = semester;
     }
     
-    public void addClass(String name, int id, String code){
-        this.classes.add(new course(name, id, code));
+    public boolean addClass(String name, int id, String code){
+        if(classes.contains(name)) {
+        	return false;
+        }
+        else {
+    		this.classes.put(name, new course(name, id, code));
+    		return true;
+        }
     }
     
-    public void removeClass(int index){
-        this.classes.remove(index);
+    public void removeClass(String name){
+        this.classes.remove(name);
     }
     
     public String getName(){
@@ -38,10 +45,23 @@ public class classHandler {
     
     public String[] listCourses(){
         ArrayList<String> temp = new ArrayList<String>();
-        String[] output;
-        for(int i = 0; i < classes.size();i++) temp.add(classes.get(i).getName());
-        output = temp.toArray(new String[temp.size()]);
-        return output;
+        temp.add("Select Course...");
+        for(String keys:classes.keySet()) temp.add(classes.get(keys).getName());
+        return temp.toArray(new String[temp.size()]);
+    }
+    
+    public boolean renameClass(String name, String replace) {
+	    if(classes.contains(replace)) {
+    		course temp = classes.get(replace);
+	    	temp.changeName(name);
+	    	classes.remove(replace);
+	    	classes.put(name, temp);
+	    	return true;
+	    }
+	    else {
+	    	return false;
+	    }
+    	
     }
     
     
@@ -49,30 +69,32 @@ public class classHandler {
         return semester;
     }
     
-    public String getClassName (int index) {
-        return classes.get(index).getName();
+    public String[] getClassDist(String className){
+        return classes.get(className).getDistributions();
     }
     
-    public String[] getClassDist(String className){
-        String[] output = {"Select Distribution..."};
-        
-        for(int i = 0; i < classes.size();i++){
-            if(className.equals(classes.get(i).getName())) output = classes.get(i).getDistributions();
-        }
-        
-        return output;
+    public distribution getSingleDist(String className, String dist) {
+    	return classes.get(className).getDistribution(dist);
+    }
+    
+    public singleGrade getSingleGrade(String className, String dist, String grade) {
+    	return classes.get(className).getDistribution(dist).getSingleGrade(grade);
     }
     
     public Integer getClassNumber(){
         return classes.size();
     }
     
-    public double getClassGrade(int index){
-        return classes.get(index).calcGrade();
+    public double getClassGrade(String name){
+        return classes.get(name).calcGrade();
     }
     
     public int getSize(){
         return classes.size();
+    }
+    
+    public void changeName(String name) {
+    	this.userName = name;
     }
     
 }
