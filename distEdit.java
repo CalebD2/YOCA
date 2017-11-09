@@ -176,7 +176,7 @@ public class distEdit extends javax.swing.JFrame {
                 .addGap(198, 198, 198))
         );
 
-        jTabbedPane1.addTab("Edit Class", panelEditDist);
+        jTabbedPane1.addTab("Edit Distribution", panelEditDist);
 
         jMenu1.setText("File");
 
