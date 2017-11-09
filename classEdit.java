@@ -75,6 +75,11 @@ public class classEdit extends javax.swing.JFrame {
         });
 
         editButSubmitClass.setText("Submit Changes");
+        editButSubmitClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButSubmitClassActionPerformed(evt);
+            }
+        });
 
         remList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -264,6 +269,10 @@ public class classEdit extends javax.swing.JFrame {
             editClassCodeText.setForeground(new java.awt.Color(0, 0, 0));
         }
     }//GEN-LAST:event_editClassCodeTextMouseClicked
+
+    private void editButSubmitClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButSubmitClassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editButSubmitClassActionPerformed
 
     /**
      * @param args the command line arguments

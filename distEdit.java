@@ -71,6 +71,11 @@ public class distEdit extends javax.swing.JFrame {
         });
 
         editButSubmitDist.setText("Submit Changes");
+        editButSubmitDist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButSubmitDistActionPerformed(evt);
+            }
+        });
 
         remList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -246,6 +251,10 @@ public class distEdit extends javax.swing.JFrame {
             editDistNameText.setForeground(new java.awt.Color(0, 0, 0));
         }
     }//GEN-LAST:event_editDistNameTextMouseClicked
+
+    private void editButSubmitDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButSubmitDistActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editButSubmitDistActionPerformed
 
     /**
      * @param args the command line arguments

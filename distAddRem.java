@@ -79,6 +79,11 @@ public class distAddRem extends javax.swing.JFrame {
         });
 
         addButCreateDist.setText("Create Distribution");
+        addButCreateDist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButCreateDistActionPerformed(evt);
+            }
+        });
 
         addDistNameText.setForeground(new java.awt.Color(153, 153, 153));
         addDistNameText.setText("ex. Exam");
@@ -166,6 +171,11 @@ public class distAddRem extends javax.swing.JFrame {
         });
 
         remButRemDist.setText("Remove Distribution");
+        remButRemDist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                remButRemDistActionPerformed(evt);
+            }
+        });
 
         remDistCBoxSemester.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Semester...", "Item 2", "Item 3", "Item 4" }));
         remDistCBoxSemester.addActionListener(new java.awt.event.ActionListener() {
@@ -297,6 +307,14 @@ public class distAddRem extends javax.swing.JFrame {
             addDistNameText.setForeground(new java.awt.Color(0, 0, 0));
         }
     }//GEN-LAST:event_addDistNameTextMouseClicked
+
+    private void addButCreateDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButCreateDistActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addButCreateDistActionPerformed
+
+    private void remButRemDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remButRemDistActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_remButRemDistActionPerformed
 
     /**
      * @param args the command line arguments

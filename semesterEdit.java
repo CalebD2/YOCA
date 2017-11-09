@@ -71,6 +71,11 @@ public class semesterEdit extends javax.swing.JFrame {
         });
 
         editButSubmitSem.setText("Submit Changes");
+        editButSubmitSem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButSubmitSemActionPerformed(evt);
+            }
+        });
 
         remList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -184,6 +189,10 @@ public class semesterEdit extends javax.swing.JFrame {
         // TODO add your handling code here:
         mainframe.setEnabled(true);
     }//GEN-LAST:event_windowClosing
+
+    private void editButSubmitSemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButSubmitSemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editButSubmitSemActionPerformed
 
     /**
      * @param args the command line arguments

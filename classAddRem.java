@@ -82,6 +82,11 @@ public class classAddRem extends javax.swing.JFrame {
         });
 
         addButCreateClass.setText("Create Class");
+        addButCreateClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButCreateClassActionPerformed(evt);
+            }
+        });
 
         addClassNameText.setForeground(new java.awt.Color(153, 153, 153));
         addClassNameText.setText("ex. Biology");
@@ -170,6 +175,11 @@ public class classAddRem extends javax.swing.JFrame {
         });
 
         remButRemClass.setText("Remove Class");
+        remButRemClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                remButRemClassActionPerformed(evt);
+            }
+        });
 
         remClassCBoxSemester1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Semester...", "Item 2", "Item 3", "Item 4" }));
         remClassCBoxSemester1.addActionListener(new java.awt.event.ActionListener() {
@@ -303,6 +313,14 @@ public class classAddRem extends javax.swing.JFrame {
             addClassCodeText.setForeground(new java.awt.Color(0, 0, 0));
         }
     }//GEN-LAST:event_addClassCodeTextMouseClicked
+
+    private void addButCreateClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButCreateClassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addButCreateClassActionPerformed
+
+    private void remButRemClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remButRemClassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_remButRemClassActionPerformed
 
     /**
      * @param args the command line arguments

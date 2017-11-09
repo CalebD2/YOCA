@@ -71,6 +71,11 @@ public class semesterAddRem extends javax.swing.JFrame {
         });
 
         addButCreateSem.setText("Create Semester");
+        addButCreateSem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButCreateSemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelAddSemLayout = new javax.swing.GroupLayout(panelAddSem);
         panelAddSem.setLayout(panelAddSemLayout);
@@ -124,6 +129,11 @@ public class semesterAddRem extends javax.swing.JFrame {
         });
 
         remButRemSem.setText("Remove Semester");
+        remButRemSem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                remButRemSemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRemSemLayout = new javax.swing.GroupLayout(panelRemSem);
         panelRemSem.setLayout(panelRemSemLayout);
@@ -215,6 +225,14 @@ public class semesterAddRem extends javax.swing.JFrame {
         mainframe.setEnabled(true);
         this.setVisible(false);
     }//GEN-LAST:event_remButCancelActionPerformed
+
+    private void addButCreateSemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButCreateSemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addButCreateSemActionPerformed
+
+    private void remButRemSemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remButRemSemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_remButRemSemActionPerformed
 
     /**
      * @param args the command line arguments

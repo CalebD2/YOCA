@@ -156,6 +156,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Create Class"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButCreateClassActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="addClassNameText">
               <Properties>
@@ -275,6 +278,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remove Class"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="remButRemClassActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="remClassCBoxSemester1">
               <Properties>
