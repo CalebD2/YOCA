@@ -54,7 +54,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" min="-2" pref="164" max="-2" attributes="0"/>
+          <Component id="jTabbedPane1" min="-2" pref="176" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -120,7 +120,7 @@
                           <Component id="addButCancel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="addButCreateClass" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace pref="26" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
