@@ -57,11 +57,11 @@ public class semesterAddRem extends javax.swing.JFrame {
 
         labelSemTerm.setText("Semester Term");
 
-        addCBoxSemTerm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        addCBoxSemTerm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Spring", "Summer", "Fall", "Winter" }));
 
         labelSemYear.setText("Semester Year");
 
-        addCBoxSemYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        addCBoxSemYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2017", "2018", "2019", "2020" }));
 
         addButCancel.setText("Cancel");
         addButCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -228,6 +228,7 @@ public class semesterAddRem extends javax.swing.JFrame {
 
     private void addButCreateSemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButCreateSemActionPerformed
         // TODO add your handling code here:
+         mainframe.addSemester(new classHandler("Testing", ((String)addCBoxSemTerm.getSelectedItem()+(String)addCBoxSemYear.getSelectedItem())));
     }//GEN-LAST:event_addButCreateSemActionPerformed
 
     private void remButRemSemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remButRemSemActionPerformed

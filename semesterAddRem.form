@@ -131,10 +131,10 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                    <StringItem index="0" value="Spring"/>
+                    <StringItem index="1" value="Summer"/>
+                    <StringItem index="2" value="Fall"/>
+                    <StringItem index="3" value="Winter"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -151,10 +151,10 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                    <StringItem index="0" value="2017"/>
+                    <StringItem index="1" value="2018"/>
+                    <StringItem index="2" value="2019"/>
+                    <StringItem index="3" value="2020"/>
                   </StringArray>
                 </Property>
               </Properties>
